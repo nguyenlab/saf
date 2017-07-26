@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__author__ = 'danilo@jaist.ac.jp'
+__author__ = 'Danilo S. Carvalho <danilo@jaist.ac.jp>, Vu Duc Tran <vu.tran@jaist.ac.jp>'
 
 import unittest
 

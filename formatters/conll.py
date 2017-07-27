@@ -26,20 +26,22 @@ class CoNLLFormatter(object):
 
     def dumps(self, document):
         if(len(document.sentences) == 0):
-            return "";
+            return u"";
 
         has_term = len(document.sentences[0].terms) > 0
 
         has_id = annotation.ID in document.sentences[0].tokens[0].annotations
 
+        header = u"# SURFACE\t" + u"\t".join(self.field_list) + u"\n"
+
         if(has_term and has_id):
-            return self.dumps_w_term_w_id(document)
+            return header + self.dumps_w_term_w_id(document)
         elif(has_term and not has_id):
-            return self.dumps_w_term_wo_id(document)
+            return header + self.dumps_w_term_wo_id(document)
         elif(not has_term and has_id):
-            return self.dumps_wo_term_w_id(document)
+            return header + self.dumps_wo_term_w_id(document)
         elif(not has_term and not has_id):
-            return self.dumps_wo_term_wo_id(document)
+            return header + self.dumps_wo_term_wo_id(document)
         else:
             raise
 
@@ -103,4 +105,5 @@ class CoNLLFormatter(object):
             output.append([])
 
         return u"\n".join((u"\t".join(line) for line in output))
+
 

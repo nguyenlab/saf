@@ -7,6 +7,7 @@ from data_model.token import Token
 from constants import annotation
 from importers.conll import CoNLLImporter
 from formatters.conll import CoNLLFormatter
+from formatters.plain import PlainFormatter
 
 
 from importers.plain import PlainImporter
@@ -85,3 +86,5 @@ class TestCoNLLFormatter(unittest.TestCase):
         conll_formatted_doc = conll_formatter.dumps(doc)
 
         print conll_formatted_doc
+
+        print PlainFormatter.dumps(doc)

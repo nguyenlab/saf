@@ -1,8 +1,9 @@
 __author__ = 'danilo@jaist.ac.jp'
 
-from sentence import Sentence
+from annotable import Annotable
 
-class Document(object):
+
+class Document(Annotable):
     """A corpus document description.
 
     Attributes:

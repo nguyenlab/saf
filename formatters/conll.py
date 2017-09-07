@@ -53,11 +53,11 @@ class CoNLLFormatter(object):
                 if(len(term.tokens) > 1):
                     output.append(
                         [term.annotations[annotation.ID], term.surface]
-                        + [term.annotations[field] if (field in term.annotations) else u"-" for field in self.field_list])
+                        + [term.annotations[field] if (field in term.annotations) else u"_" for field in self.field_list])
 
                 for token in term.tokens:
                     output.append([token.annotations[annotation.ID], token.surface]
-                                  + [token.annotations[field] if (field in token.annotations) else u"-" for field in self.field_list])
+                                  + [token.annotations[field] if (field in token.annotations) else u"_" for field in self.field_list])
 
             output.append([])
 
@@ -72,12 +72,12 @@ class CoNLLFormatter(object):
                 if(len(term.tokens) > 1):
                     output.append(
                         [u"%d-%d" % (last_token_id+1, last_token_id+len(term.tokens)), term.surface]
-                        + [term.annotations[field] if (field in term.annotations) else u"-" for field in self.field_list])
+                        + [term.annotations[field] if (field in term.annotations) else u"_" for field in self.field_list])
 
                 for token in term.tokens:
 
                         output.append([unicode(last_token_id + 1), token.surface]
-                                      + [token.annotations[field] if (field in token.annotations) else u"-" for field in self.field_list])
+                                      + [token.annotations[field] if (field in token.annotations) else u"_" for field in self.field_list])
                         last_token_id += 1
 
             output.append([])
@@ -88,7 +88,7 @@ class CoNLLFormatter(object):
         output = []
         for sentence in document.sentences:
             for token in sentence.tokens:
-                output.append([token.annotations[annotation.ID], token.surface] + [token.annotations[field] if (field in token.annotations) else u"-" for field in self.field_list])
+                output.append([token.annotations[annotation.ID], token.surface] + [token.annotations[field] if (field in token.annotations) else u"_" for field in self.field_list])
 
             output.append([])
 
@@ -100,7 +100,7 @@ class CoNLLFormatter(object):
         for sentence in document.sentences:
             last_token_id = 0
             for token in sentence.tokens:
-                output.append([unicode(last_token_id+1),token.surface] + [token.annotations[field] if (field in token.annotations) else u"-" for field in self.field_list])
+                output.append([unicode(last_token_id+1),token.surface] + [token.annotations[field] if (field in token.annotations) else u"_" for field in self.field_list])
                 last_token_id += 1
             output.append([])
 

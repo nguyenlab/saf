@@ -1,9 +1,9 @@
 __author__ = 'danilo@jaist.ac.jp'
 
-import re
+from annotable import Annotable
 
 
-class Sentence(object):
+class Sentence(Annotable):
     """Description of a sentence.
 
     Attributes:

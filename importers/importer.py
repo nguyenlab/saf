@@ -31,6 +31,6 @@ class Importer(object):
         :param document_text (unicode): plain text to be imported as a document.
         :return: Document object
         """
-        pass
+        raise NotImplementedError()
 
 

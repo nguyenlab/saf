@@ -1,7 +1,9 @@
 __author__ = 'Danilo S. Carvalho <danilo@jaist.ac.jp>, Vu Duc Tran <vu.tran@jaist.ac.jp>'
 
+from annotable import Annotable
 
-class Token(object):
+
+class Token(Annotable):
     """Description of a token.
 
     Attributes:
